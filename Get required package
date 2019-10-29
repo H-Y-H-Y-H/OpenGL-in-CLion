@@ -1,0 +1,17 @@
+1. 配置glew和glfw
+进入终端/usr/local/Cellar/目录下运行下面两句，安装完后在此可以找到对应的目录。（注意版本，并对CMakelists里的内容进行修改）
+
+brew install glew
+brew install glfw3
+
+2. 配置glad
+glad是为了简化开发而设计的，不是必须的，是一个function loader，在glad文件生成网站（https://glad.dav1d.de/）配置好，如下所示：
+Specification:OpenGL
+Profile:Core
+Version: ***
+Others: None
+
+3.注意这样配置之后需要更改/usr/local/include/glad文件夹下的glad.h中的#include <KHR/khrplatform.h>更改为#include <khrplatform.h>，具体步骤：
+在CLion中打开glad.c文件，command+点按#include <glad.h>会跳到glad.h
+然后在glad.h中command+f找到#include <KHR/khrplatform.h>，将它改为#include <khrplatform.h>
+
